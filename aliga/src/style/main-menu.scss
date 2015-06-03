@@ -1,0 +1,17 @@
+
+.main-menu         { height: 51px;
+  .main-menu__link {
+                     border-top: 5px solid #333333; border-right: 1px solid #525252; color: #ffffff;
+                     font-weight: bold; padding: 13px 0 18px; text-transform: uppercase;  text-align: center;
+                     margin:0;
+    &:hover        { background: #222; }
+  }
+}
+
+
+.rent{}
+.sale{}
+.daily-rent{}
+.more-service{}
+.forum{}
+.my-office{}

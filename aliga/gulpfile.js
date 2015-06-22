@@ -9,8 +9,8 @@ var sass = require('gulp-sass');
 
 var paths = {
     html:'src/*.html',
-    sass:'src/style/style.scss',
-    css:'src/style/style.css',
+    sass:'src/style/styles.scss',
+    css:'src/style/styles.css',
     scripts: 'src/app/**/*.js',
     images: ''
 };
@@ -30,9 +30,9 @@ gulp.task('minify-html', function () {
 });
 
 gulp.task('sass', function () {
-    gulp.src(paths.sass)
+   return  gulp.src(paths.sass)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./src/style/'));
+        .pipe(gulp.dest("./src/style/"));
 });
 
 
@@ -43,10 +43,11 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest("./build/style/"));
 });
 
-gulp.task('default', ['minify-js', 'minify-html','sass', 'minify-css']);
+gulp.task('default', [ 'minify-html','sass', 'minify-css','minify-js']);
 
 var watcher = gulp.watch('./src/**/*.*', ['default']);
 watcher.on('change', function (e) {
+  //  console.log(paths.sass);
     console.log('File ' + e.path + ' was ' + e.type + '!');
 });
 

@@ -1,1 +1,1 @@
-define(["exports","../Components/index"],function(e,n){"use strict";n.render()});
+define(["exports","../Components/index","../helper/ajax"],function(e,t,n){"use strict";n.getData("/dataGet").forEach(function(e){return t.render(e)})});

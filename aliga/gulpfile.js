@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var babel = require("gulp-babel");
 var uglify = require('gulp-uglify');
+var autoprefixer = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
 var concat = require('gulp-concat');
@@ -8,9 +9,9 @@ var sass = require('gulp-sass');
 
 
 var paths = {
-    html:'src/*.html',
-    sass:'src/style/styles.scss',
-    css:'src/style/styles.css',
+    html: 'src/*.html',
+    sass: 'src/style/styles.scss',
+    css: 'src/style/styles.css',
     scripts: 'src/app/**/*.js',
     images: ''
 };
@@ -30,11 +31,14 @@ gulp.task('minify-html', function () {
 });
 
 gulp.task('sass', function () {
-   return  gulp.src(paths.sass)
+    return gulp.src(paths.sass)
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest("./src/style/"));
 });
-
 
 
 gulp.task('minify-css', function () {
@@ -43,11 +47,11 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest("./build/style/"));
 });
 
-gulp.task('default', [ 'minify-html','sass', 'minify-css','minify-js']);
+gulp.task('default', ['minify-html', 'sass', 'minify-css', 'minify-js']);
 
 var watcher = gulp.watch('./src/**/*.*', ['default']);
 watcher.on('change', function (e) {
-  //  console.log(paths.sass);
+    //  console.log(paths.sass);
     console.log('File ' + e.path + ' was ' + e.type + '!');
 });
 

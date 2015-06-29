@@ -16,16 +16,20 @@
     "gulp-minify-html": "^1.0.3",
     "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.2.0",
-    "requirejs": "^2.1.18"
+    "requirejs": "^2.1.18",
+    "tcomb-react-bootstrap": "^0.1.3"
   },
   "devDependencies": {
-    "gulp-autoprefixer": "^2.3.0",
+    "color": "^0.9.0",
+    "gulp-autoprefixer": "^2.3.1",
     "koa": "^0.21.0",
     "koa-body-parser": "^1.1.2",
     "koa-routing": "^1.3.0",
     "koa-static": "^1.4.9",
+    "radium": "^0.13.0",
     "react": "^0.13.3",
-    "react-bootstrap": "^0.23.4",
+    "react-bootstrap": "^0.23.5",
+    "react-style": "^0.5.5",
     "reflux": "^0.2.7",
     "rx": "^2.5.3"
   }

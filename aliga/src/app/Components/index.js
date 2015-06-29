@@ -1,17 +1,23 @@
 import React from 'react';
-import Rx from 'rx';
+import RB from 'react_bootstrap';
 
-import * as head from 'Build/script/Components/header.js';
+import Header from '../Components/MainMenu';
+import Content from '../Components/MainContent'
+import Footer from '../Components/Footer';
 
-console.log(head.header);
+var Grid = RB.Grid;
 
-var headerData = {
-    rent: 'Оренда',
-    sale: 'Продаж',
-    daily_rent: 'Подобова орнеда',
-    forum: 'Форум',
-    my_office: 'Мій кабінет'
-};
-export function render() {
-    React.render(<head.header data={headerData}/>, document.getElementById('content'));
+export function render(data) {
+    var data = JSON.parse(data);
+    try {
+        React.render(<Grid><Header data={data}/>
+            <Content />
+            <Footer/>
+        </Grid>, document.getElementsByTagName('body')[0]);
+        return true;
+    }
+    catch (e) {
+        console.log(e);
+        return false;
+    }
 }
